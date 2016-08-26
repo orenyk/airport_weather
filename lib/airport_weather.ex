@@ -1,0 +1,2 @@
+defmodule AirportWeather do
+end
