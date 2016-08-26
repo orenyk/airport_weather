@@ -1,24 +1,20 @@
 # AirportWeather
 
-**TODO: Add description**
+This program uses the NOAA's weather feeds to display the current weather
+conditions at a given US airport (identified by its 3-letter IATA code, e.g. EWR
+for Newark Liberty International Airport).
 
-## Installation
+## TODO:
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+1. CLI parsing
+2. Issue request to NOAA site "http://w1.weather.gov/xml/current_obs/K#{CODE}"
+3. Check HTTP response for success / failure
+4. Parse XML response
+  - Fields: Weather, Temperature, Dewpoint, Relative Humidity, Heat Index, Wind, Visibility, MSL Pressure, Altimeter
+5. Format data nicely
 
-  1. Add `airport_weather` to your list of dependencies in `mix.exs`:
-
-    ```elixir
-    def deps do
-      [{:airport_weather, "~> 0.1.0"}]
-    end
-    ```
-
-  2. Ensure `airport_weather` is started before your application:
-
-    ```elixir
-    def application do
-      [applications: [:airport_weather]]
-    end
-    ```
+### Don't forget:
+* Documentation
+* Logging
+* Executable
 
