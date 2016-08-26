@@ -10,8 +10,8 @@ defmodule CliTest do
     assert parse_args(["foo", "-h"]) == :help
   end
 
-  test "parse_args returns any other single input passed" do
-    assert parse_args(["foo"]) == "foo"
+  test "parse_args returns any other single input passed in upper case" do
+    assert parse_args(["foo"]) == "FOO"
   end
 
   test "parse_args returns :help for any other input" do

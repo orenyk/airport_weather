@@ -25,8 +25,17 @@ defmodule AirportWeather.CLI do
                                aliases: [h: :help])
     case parse do
       { [help: true], _, _ } -> :help
-      { _, [code], _ } -> code
+      { _, [code], _ } -> String.upcase code
       _ -> :help
     end
+  end
+
+  def process(:help) do
+    IO.puts "airport_weather <airport code>"
+    System.halt(0)
+  end
+
+  def process(code) when is_binary(code) do
+    code
   end
 end
