@@ -30,12 +30,19 @@ defmodule AirportWeather.CLI do
     end
   end
 
-  def process(:help) do
+  defp process(:help) do
     IO.puts "airport_weather <airport code>"
     System.halt(0)
   end
 
-  def process(code) when is_binary(code) do
-    code
+  defp process(code) when is_binary(code) do
+    AirportWeather.NOAA.fetch(code)
+    |> decode_response
+  end
+
+  defp decode_response({:ok, body}), do: body
+  defp decode_response({:error, status}) do
+    IO.puts "Error fetching from NOAA, status code #{status}"
+    System.halt(2)
   end
 end

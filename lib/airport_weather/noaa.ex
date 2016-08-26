@@ -12,7 +12,20 @@ defmodule AirportWeather.NOAA do
   def fetch(code) do
     Logger.info "Fetching local weather at #{code}"
     weather_url(code)
+    |> HTTPoison.get(@user_agent)
+    |> handle_response
   end
 
   defp weather_url(code), do: "#{@weather_url}/K#{code}.xml"
+
+  defp handle_response({:ok, %{status_code: 200, body: body}}) do
+    Logger.info "Successful response"
+    Logger.debug fn -> inspect(body) end
+    {:ok, body}
+  end
+
+  defp handle_response({_, %{status_code: status}}) do
+    Logger.error "Error #{status} returned"
+    {:error, status}
+  end
 end
