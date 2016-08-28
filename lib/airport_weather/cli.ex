@@ -1,12 +1,15 @@
 defmodule AirportWeather.CLI do
-  
+
+  @fields [:location, :station_id, :weather, :temperature_string,
+           :relative_humidity, :wind_string]
+
   @moduledoc """
   Handles the command line parsing of user input and the dispatch to the various
   functions that look up the local weather at a given US airport and display it.
   """
 
   def main(argv) do
-    argv |> parse_args
+    argv |> parse_args |> process
   end
 
   @doc """
@@ -38,6 +41,7 @@ defmodule AirportWeather.CLI do
   defp process(code) when is_binary(code) do
     AirportWeather.NOAA.fetch(code)
     |> decode_response
+    |> AirportWeather.Parser.parse(@fields)
   end
 
   defp decode_response({:ok, body}), do: body
