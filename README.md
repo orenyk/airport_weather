@@ -9,11 +9,11 @@ This is the solution to problem `OrganizingAProject-6` from [Programming Elixir
 
 ## TODO:
 
-1. CLI parsing
-2. Issue request to NOAA site "http://w1.weather.gov/xml/current_obs/K#{CODE}"
-3. Check HTTP response for success / failure
-4. Parse XML response
-  - Fields: Weather, Temperature, Dewpoint, Relative Humidity, Heat Index, Wind, Visibility, MSL Pressure, Altimeter
+1. ~~CLI parsing~~
+2. ~~Issue request to NOAA site "http://w1.weather.gov/xml/current_obs/K#{CODE}"~~
+3. ~~Check HTTP response for success / failure~~
+4. ~~Parse XML response~~
+  - ~~Fields: Weather, Temperature, Dewpoint, Relative Humidity, Heat Index, Wind, Visibility, MSL Pressure, Altimeter~~
 5. Format data nicely
 
 ### Don't forget:
