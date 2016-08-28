@@ -2,6 +2,11 @@
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
 config :airport_weather, weather_url: "http://w1.weather.gov/xml/current_obs/"
+config :airport_weather, fields: [:location, :station_id, :weather,
+                                  :temperature_string, :relative_humidity,
+                                  :wind_string]
+
+config :logger, compile_time_purge_level: :info
 
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this

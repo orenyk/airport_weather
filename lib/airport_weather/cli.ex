@@ -1,7 +1,6 @@
 defmodule AirportWeather.CLI do
 
-  @fields [:location, :station_id, :weather, :temperature_string,
-           :relative_humidity, :wind_string]
+  @fields Application.get_env(:airport_weather, :fields)
 
   @moduledoc """
   Handles the command line parsing of user input and the dispatch to the various
