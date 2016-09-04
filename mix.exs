@@ -5,6 +5,7 @@ defmodule AirportWeather.Mixfile do
     [app: :airport_weather,
      version: "0.1.0",
      elixir: "~> 1.3",
+     escript: escript_config,
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps()]
@@ -31,5 +32,9 @@ defmodule AirportWeather.Mixfile do
       httpoison: "~> 0.9.0",
       sweet_xml: "~> 0.6.1"
     ]
+  end
+
+  defp escript_config do
+    [main_module: AirportWeather.CLI]
   end
 end
