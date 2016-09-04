@@ -2,7 +2,7 @@ defmodule AirportWeather.NOAA do
 
   require Logger
 
-  @docmodule """
+  @moduledoc """
   Serves as an interface with the NOAA local weather API
   """
 

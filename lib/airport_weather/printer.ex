@@ -1,6 +1,6 @@
 defmodule AirportWeather.Printer do
 
-  @docmodule """
+  @moduledoc """
   Handles the printing of weather data.
   """
 
