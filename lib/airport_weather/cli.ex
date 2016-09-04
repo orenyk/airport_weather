@@ -41,6 +41,7 @@ defmodule AirportWeather.CLI do
     AirportWeather.NOAA.fetch(code)
     |> decode_response
     |> AirportWeather.Parser.parse(@fields)
+    |> AirportWeather.Printer.print
   end
 
   defp decode_response({:ok, body}), do: body

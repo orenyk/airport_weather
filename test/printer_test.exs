@@ -1,13 +1,20 @@
 defmodule PrinterTest do
   use ExUnit.Case
+  import ExUnit.CaptureIO
   doctest AirportWeather.Printer
 
-  import AirportWeather.Printer, only: [get_title: 1]
+  test "#print prints a map of data into appropriately aligned columns" do
+    data = %{foo: "foo foo", bar_string: "bar", bazbaz: "baz"}
 
-  def dummy_map, do: %{weather: "Partly cloudy",
-                       temperature_string: "77 F (25 C)"}
+    result = capture_io fn ->
+      AirportWeather.Printer.print(data)
+    end
 
-  test "get_titles removes 'string' from keys" do
-
+    assert result == """
+       bar:\tbar    
+    bazbaz:\tbaz    
+       foo:\tfoo foo
+    """
   end
+
 end
